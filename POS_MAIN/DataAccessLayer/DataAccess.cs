@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.OleDb;
 using System.Data;
+using BusinessObject;
 
 namespace DataAccessLayer
 {
@@ -68,7 +69,14 @@ namespace DataAccessLayer
             return u;
         }
 
-        public void Save(User user)
+        public void InitiateProcedure(string procedureName)
+        {
+            this.QueryText(procedureName);
+            this.DbCommand.CommandType = CommandType.StoredProcedure;
+            //this.DbCommand.ExecuteNonQuery();
+        }
+
+        public void Save(UserInfo user)
         {
             Console.WriteLine(user.User_Id + user.Name + user.Phone + user.Gender + user.Password + user.User_Type);
             this.QueryText(@"insert into tbl_user (user_id,name,phone,gender,password,user_type) " +

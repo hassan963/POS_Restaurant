@@ -4,59 +4,57 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccessLayer
+namespace BusinessObject
 {
-    public class User
+    public class UserInfo
     {
         private string user_id;
         private string name;
         private string phone;
         private string gender;
-        private string passsword;
+        private string password;
         private string user_type;
 
-        public User(string user_id, string name, string phone, string gender, string passsword, string user_type)
+
+        public UserInfo(string user_id, string name, string phone, string gender, string password, string user_type)
         {
-            User_Id = user_id;
-            Name = name;
-            Phone = phone;
-            Password = passsword;
-            User_Type = user_type;
-            Gender = gender;
+            this.User_Id = user_id;
+            this.Name = name;
+            this.Phone = phone;
+            this.Gender = gender;
+            this.Password = password;
+            this.User_Type = user_type;
         }
 
         public string User_Id
         {
-            get { return user_id; }
             set { user_id = value; }
+            get { return user_id; }
         }
-
         public string Name
         {
-            get { return name; }
             set { name = value; }
+            get { return name; }
         }
         public string Phone
         {
-            get { return phone; }
             set { phone = value; }
+            get { return phone; }
         }
         public string Gender
         {
-            get { return gender; }
             set { gender = value; }
+            get { return gender; }
         }
         public string Password
         {
-            get { return passsword; }
-            set { passsword = value; }
+            set { password = value; }
+            get { return password; }
         }
         public string User_Type
         {
-            get { return user_type; }
             set { user_type = value; }
+            get { return user_type; }
         }
-
-
     }
 }

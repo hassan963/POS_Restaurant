@@ -41,13 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CashierOperationBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SignUpLayer.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
+    <ProjectReference Include="..\BusinessObject\BusinessObject.csproj">
+      <Project>{689157f3-0dd5-448f-a6f2-70cd65f46c67}</Project>
+      <Name>BusinessObject</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataAccessLayer\DataLayer.csproj">
       <Project>{d8298fa7-d53b-4f1f-911f-3d5179580636}</Project>
-      <Name>DataAccessLayer</Name>
+      <Name>DataLayer</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
