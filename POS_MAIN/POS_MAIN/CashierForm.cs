@@ -50,12 +50,6 @@ namespace POS_MAIN
         protected void MenuListView_Click(object sender, EventArgs e)
         {
 
-            if (this.menu_listview.SelectedItems.Count > 0)
-            {
-                //MenuInfo menuInfo = (MenuInfo)e.Item.Tag;
-                
-
-            }
         }
 
         private void OrderListView_SelectedIndexChanged(object sender, EventArgs e)
@@ -71,7 +65,7 @@ namespace POS_MAIN
             item.Text = obj.Name;
             item.Tag = obj;
 
-            // Other requirements as needed
+          
 
             listView.Items.Add(item);
         }
@@ -134,11 +128,12 @@ namespace POS_MAIN
             this.orderListView.Items.Clear();
             this.totalPriceLabel.Text = "0.0";
             this.quantityTextBox.Text = "";
+            totalPrice = 0;
         }
 
         private void user_type_label_Click(object sender, EventArgs e)
         {
-
+            
         }
     }
 }

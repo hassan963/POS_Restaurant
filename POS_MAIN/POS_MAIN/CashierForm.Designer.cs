@@ -57,7 +57,9 @@
             this.user_name_label = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.user_type_label = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.search_textbox = new System.Windows.Forms.TextBox();
+            this.search_button = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -386,13 +388,33 @@
             this.user_type_label.Text = "Cashier";
             this.user_type_label.Click += new System.EventHandler(this.user_type_label_Click);
             // 
-            // textBox1
+            // search_textbox
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(336, 60);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(166, 31);
-            this.textBox1.TabIndex = 7;
+            this.search_textbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.search_textbox.Location = new System.Drawing.Point(402, 60);
+            this.search_textbox.Name = "search_textbox";
+            this.search_textbox.Size = new System.Drawing.Size(166, 31);
+            this.search_textbox.TabIndex = 7;
+            // 
+            // search_button
+            // 
+            this.search_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.search_button.Location = new System.Drawing.Point(595, 60);
+            this.search_button.Name = "search_button";
+            this.search_button.Size = new System.Drawing.Size(93, 31);
+            this.search_button.TabIndex = 8;
+            this.search_button.Text = "Search";
+            this.search_button.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(398, 37);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(158, 20);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Search by name or id";
             // 
             // CashierForm
             // 
@@ -400,7 +422,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1239, 522);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.search_button);
+            this.Controls.Add(this.search_textbox);
             this.Controls.Add(this.user_type_label);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.user_name_label);
@@ -449,6 +473,8 @@
         private System.Windows.Forms.Label user_name_label;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label user_type_label;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox search_textbox;
+        private System.Windows.Forms.Button search_button;
+        private System.Windows.Forms.Label label4;
     }
 }

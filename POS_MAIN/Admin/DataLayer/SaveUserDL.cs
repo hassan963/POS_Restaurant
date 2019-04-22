@@ -29,7 +29,7 @@ namespace Admin.DataLayer
             dataAccess.DbCommand.Parameters.AddWithValue("@password", user.Password);
             dataAccess.DbCommand.Parameters.AddWithValue("@user_type", user.User_Type);
             dataAccess.DbCommand.CommandType = CommandType.Text;
-            dataAccess..ExecuteNonQuery();
+            dataAccess.DbCommand.ExecuteNonQuery();
 
             /*
              When excuting this query it will also trigger USER_AFTER_INSERT that will insert login 
