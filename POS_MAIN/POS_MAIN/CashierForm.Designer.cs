@@ -53,6 +53,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.menu_listview = new System.Windows.Forms.ListView();
             this.menu_name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.date_label = new System.Windows.Forms.Label();
+            this.user_name_label = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.user_type_label = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -340,12 +345,66 @@
             this.menu_listview.View = System.Windows.Forms.View.Tile;
             this.menu_listview.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.Menu_listview_ItemSelectionChanged);
             // 
+            // date_label
+            // 
+            this.date_label.AutoSize = true;
+            this.date_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.date_label.Location = new System.Drawing.Point(18, 9);
+            this.date_label.Name = "date_label";
+            this.date_label.Size = new System.Drawing.Size(139, 29);
+            this.date_label.TabIndex = 3;
+            this.date_label.Text = "23.04.2019";
+            // 
+            // user_name_label
+            // 
+            this.user_name_label.AutoSize = true;
+            this.user_name_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.user_name_label.Location = new System.Drawing.Point(20, 63);
+            this.user_name_label.Name = "user_name_label";
+            this.user_name_label.Size = new System.Drawing.Size(91, 25);
+            this.user_name_label.TabIndex = 4;
+            this.user_name_label.Text = "Hassan";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(150, 63);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(67, 25);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Role:";
+            // 
+            // user_type_label
+            // 
+            this.user_type_label.AutoSize = true;
+            this.user_type_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.user_type_label.Location = new System.Drawing.Point(217, 63);
+            this.user_type_label.Name = "user_type_label";
+            this.user_type_label.Size = new System.Drawing.Size(93, 25);
+            this.user_type_label.TabIndex = 6;
+            this.user_type_label.Text = "Cashier";
+            this.user_type_label.Click += new System.EventHandler(this.user_type_label_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(336, 60);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(166, 31);
+            this.textBox1.TabIndex = 7;
+            // 
             // CashierForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1239, 522);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.user_type_label);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.user_name_label);
+            this.Controls.Add(this.date_label);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Name = "CashierForm";
@@ -386,5 +445,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label totalPriceLabel;
         private System.Windows.Forms.Button PayButton;
+        private System.Windows.Forms.Label date_label;
+        private System.Windows.Forms.Label user_name_label;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label user_type_label;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

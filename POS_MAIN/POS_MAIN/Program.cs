@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
+using Admin;
 
 namespace POS_MAIN
 {
@@ -18,7 +19,7 @@ namespace POS_MAIN
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new StartForm());
-            Application.Run(new CashierForm());
+            Application.Run(new Registration());
         }
     }
 }

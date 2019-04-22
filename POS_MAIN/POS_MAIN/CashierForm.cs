@@ -135,5 +135,10 @@ namespace POS_MAIN
             this.totalPriceLabel.Text = "0.0";
             this.quantityTextBox.Text = "";
         }
+
+        private void user_type_label_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

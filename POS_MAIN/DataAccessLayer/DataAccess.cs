@@ -48,7 +48,7 @@ namespace DataAccessLayer
             DbConnection.Open();
         }
 
-        private void QueryText(string query)
+        public void QueryText(string query)
         {
             this.DbCommand = new OleDbCommand(query, this.DbConnection);
         }
