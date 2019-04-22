@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B06679F0-EB8A-42A1-8251-C67409182A5B}</ProjectGuid>
+    <ProjectGuid>{2336F7C9-8193-4291-87B3-25B4A3E96BC3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Admin</RootNamespace>
@@ -43,8 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataLayer\SaveUserDL.cs" />
-    <Compile Include="EntityLayer\UserInfo.cs" />
+    <Compile Include="DataLayer\RegistrationDl.cs" />
+    <Compile Include="Entity\UserInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registration.cs">
       <SubType>Form</SubType>
@@ -52,14 +52,18 @@
     <Compile Include="Registration.Designer.cs">
       <DependentUpon>Registration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Repository\SaveUserRep.cs" />
+    <Compile Include="Repository\RegistrationRep.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\DataAccessLayer\DataLayer.csproj">
       <Project>{d8298fa7-d53b-4f1f-911f-3d5179580636}</Project>
       <Name>DataLayer</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Registration.resx">
+      <DependentUpon>Registration.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

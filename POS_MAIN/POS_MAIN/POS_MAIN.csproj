@@ -89,6 +89,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Admin\Admin.csproj">
+      <Project>{2336f7c9-8193-4291-87b3-25b4a3e96bc3}</Project>
+      <Name>Admin</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BusinessAccessLayer\BusinessLayer.csproj">
       <Project>{5c088e9a-934d-4794-a6d5-a4d9e9ea466b}</Project>
       <Name>BusinessLayer</Name>

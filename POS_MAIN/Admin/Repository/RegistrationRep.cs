@@ -4,16 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Admin.DataLayer;
-using Admin.EntityLayer;
+using Admin.Entity;
 
 namespace Admin.Repository
 {
-    class SaveUserRep
+    class RegistrationRep
     {
-        public void InsertUser(UserInfo userInfo)
+        public void AddUser(UserInfo user)
         {
-            SaveUserDL saveUserDL = new SaveUserDL();
-            saveUserDL.Save(userInfo);
+            RegistrationDl regisdl = new RegistrationDl();
+
+            regisdl.InsertUser(user);
         }
     }
 }
