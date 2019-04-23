@@ -20,7 +20,7 @@ namespace DataAccessLayer
             List<MenuInfo> menuList = new List<MenuInfo>();
             menuList.Clear();
             DataAccess dataAccess = new DataAccess();
-            DataSet ds = dataAccess.ExecuteQuery("select * from tbl_menu where category_id = '"+ id +"'");
+            DataSet ds = dataAccess.ExecuteQuery("select * from tbl_menu where category_name = '"+ id +"'");
 
            int count =  ds.Tables[0].Rows.Count;
 

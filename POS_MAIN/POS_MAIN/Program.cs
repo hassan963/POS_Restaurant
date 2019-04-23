@@ -20,7 +20,10 @@ namespace POS_MAIN
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new CashierForm());
-            Application.Run(new Registration());
+            //Application.Run(new Registration());
+            //Application.Run(new ValidateLogin());
+            //Application.Run(new WFAMenu());
+            Application.Run(new Accountant());
         }
     }
 }
