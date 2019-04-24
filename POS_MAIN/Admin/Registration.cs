@@ -26,12 +26,22 @@ namespace Admin
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            UserInfo userInfo = new UserInfo(this.txtName.Text, this.txtUserName.Text, this.txtPhone.Text, this.checkedGender, this.txtPassword.Text, this.checkedUserType);
-            RegistrationRep regisrep = new RegistrationRep();
+            UserInfo userinfo = new UserInfo(this.txtName.Text, this.txtUserName.Text, this.txtPhone.Text, this.checkedGender, this.txtPassword.Text, this.checkedUserType);
 
-            string operationType = regisrep.AddUser(userInfo);
-            MessageBox.Show(operationType);
-            this.PopulateGridView();
+            if (this.txtPassword.Text.Length <= 3)
+            {
+                MessageBox.Show("Minimum Password Length is 4");
+            }
+
+            else
+            {
+                RegistrationRep regisrep = new RegistrationRep();
+
+                string operationType = regisrep.AddUser(userinfo);
+                MessageBox.Show(operationType);
+                this.PopulateGridView();
+            }
+            
 
 
             /*Console.WriteLine(this.txtUserId.Text);
@@ -41,6 +51,8 @@ namespace Admin
             Console.WriteLine(this.GetGender());
             Console.WriteLine(this.txtPassword.Text);
             Console.WriteLine(this.GetUserType());*/
+
+            
         }
 
         /*public string GetGender()
@@ -115,16 +127,63 @@ namespace Admin
             }
         }
 
-        /*private void rbSale_CheckedChanged(object sender, EventArgs e)
+        private void dgvRegistration_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            checkedUserType = "Sale";
+            this.txtUserId.Text = this.dgvRegistration.CurrentRow.Cells["user_id"].Value.ToString();
+            this.txtName.Text = this.dgvRegistration.CurrentRow.Cells["name"].Value.ToString();
+            this.txtUserName.Text = this.dgvRegistration.CurrentRow.Cells["user_name"].Value.ToString();
+            this.txtPhone.Text = this.dgvRegistration.CurrentRow.Cells["phone"].Value.ToString();
+            this.checkedGender = this.dgvRegistration.CurrentRow.Cells["gender"].Value.ToString();
+            this.txtPassword.Text = this.dgvRegistration.CurrentRow.Cells["password"].Value.ToString();
+            this.checkedUserType = this.dgvRegistration.CurrentRow.Cells["user_type"].Value.ToString();
         }
 
-        private void rbAccountant_CheckedChanged(object sender, EventArgs e)
+        private void btnDelete_Click(object sender, EventArgs e)
         {
-            checkedUserType = "Accountant";
-        }*/
+            //string userId = this.dgvRegistration.CurrentRow.Cells["user_id"].Value.ToString();
+            //string name = this.dgvRegistration.CurrentRow.Cells["name"].Value.ToString();
+            //this.txtUserName.Text = this.dgvRegistration.CurrentRow.Cells["user_name"].Value.ToString();
+            //string phone = this.dgvRegistration.CurrentRow.Cells["phone"].Value.ToString();
+            //            this.checkedGender = this.dgvRegistration.CurrentRow.Cells["gender"].Value.ToString();
+            //string password = this.dgvRegistration.CurrentRow.Cells["password"].Value.ToString();
+            //this.checkedUserType = this.dgvRegistration.CurrentRow.Cells["user_type"].Value.ToString();
 
 
+            string userName = this.dgvRegistration.CurrentRow.Cells["user_name"].Value.ToString();
+            RegistrationRep regisrepo = new RegistrationRep();
+            string operationType = regisrepo.DeleteUser(userName);
+            MessageBox.Show(operationType);
+            this.PopulateGridView();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            //string userType = this.dgvRegistration.CurrentRow.Cells["user_type"].Value.ToString();
+            RegistrationRep regisRep = new RegistrationRep();
+            //instead of ds, repository layer method is accessed, passing the text field
+            this.dgvRegistration.DataSource = regisRep.SearchUserType(this.txtSearchUserType.Text).Tables[0];
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            AdminPanel ap = new AdminPanel();
+            ap.Visible = true;
+        }
+
+        private void txtPhone_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

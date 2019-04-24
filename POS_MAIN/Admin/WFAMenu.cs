@@ -23,7 +23,7 @@ namespace Admin
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            MenuInfo menuinfo = new MenuInfo(this.txtName.Text, float.Parse(this.txtUnitPrice.Text), this.checkCategory);
+            MenuInfo menuinfo = new MenuInfo(this.txtName.Text, float.Parse(this.txtUnitPrice.Text), checkCategory);
             MenuRepo menurepo = new MenuRepo();
             string operationType = menurepo.AddMenu(menuinfo);
             MessageBox.Show(operationType);
@@ -95,6 +95,41 @@ namespace Admin
         private void btnShowAll_Click(object sender, EventArgs e)
         {
             this.PopulateGridView();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            string id = this.dgvMenu.CurrentRow.Cells[0].Value.ToString();
+            MenuRepo menuRepo = new MenuRepo();
+            string operationType = menuRepo.DeleteMenu(id);
+            MessageBox.Show(operationType);
+            this.PopulateGridView();
+        }
+
+        private void dgvMenu_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            this.txtMenuId.Text = this.dgvMenu.CurrentRow.Cells[0].Value.ToString();
+            this.txtName.Text = this.dgvMenu.CurrentRow.Cells[1].Value.ToString();
+            this.txtUnitPrice.Text = this.dgvMenu.CurrentRow.Cells[2].Value.ToString();
+            this.checkCategory = this.dgvMenu.CurrentRow.Cells[3].Value.ToString();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            MenuRepo menuRepo = new MenuRepo();
+            this.dgvMenu.DataSource = menuRepo.SearchMenuName(this.txtSearchMenuName.Text).Tables[0];
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            AdminPanel ap = new AdminPanel();
+            ap.Visible = true;
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

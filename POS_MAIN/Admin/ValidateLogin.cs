@@ -30,7 +30,8 @@ namespace Admin
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            //this.Close();
+            Application.Exit();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -43,15 +44,26 @@ namespace Admin
 
             if (this.Ds.Tables[0].Rows.Count == 1 && this.Ds.Tables[0].Rows[0][6].ToString() == "Admin")
             {
-                MessageBox.Show("Admin");
+                //MessageBox.Show("Admin");
+
+                this.Visible = false;
+                AdminPanel ap = new AdminPanel();
+                ap.Visible = true;
             }
             else if (this.Ds.Tables[0].Rows.Count == 1 && this.Ds.Tables[0].Rows[0][6].ToString() == "Sale")
             {
-                MessageBox.Show("Sale");
+                //MessageBox.Show("Sale");
+
+                this.Visible = false;
+                WFAMenu wfaMenu = new WFAMenu();
+                wfaMenu.Visible = true;
             }
             else if (this.Ds.Tables[0].Rows.Count == 1 && this.Ds.Tables[0].Rows[0][6].ToString() =="Accountant")
             {
-                MessageBox.Show("Accountant");
+                //MessageBox.Show("Accountant");
+                this.Visible = false;
+                Accountant ac = new Accountant();
+                ac.Visible = true;
             }
 
             

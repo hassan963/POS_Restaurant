@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.pnlRegistration = new System.Windows.Forms.Panel();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
+            this.chkAccountant = new System.Windows.Forms.CheckBox();
+            this.chkSale = new System.Windows.Forms.CheckBox();
+            this.lblUserType = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnShowAll = new System.Windows.Forms.Button();
             this.dgvRegistration = new System.Windows.Forms.DataGridView();
@@ -39,7 +44,7 @@
             this.gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.password = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.user_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.txtSearchUserType = new System.Windows.Forms.TextBox();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.txtPassword = new System.Windows.Forms.TextBox();
@@ -55,22 +60,21 @@
             this.lblName = new System.Windows.Forms.Label();
             this.txtUserId = new System.Windows.Forms.TextBox();
             this.lblUserId = new System.Windows.Forms.Label();
-            this.lblUserType = new System.Windows.Forms.Label();
-            this.chkSale = new System.Windows.Forms.CheckBox();
-            this.chkAccountant = new System.Windows.Forms.CheckBox();
             this.pnlRegistration.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegistration)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlRegistration
             // 
+            this.pnlRegistration.Controls.Add(this.btnExit);
+            this.pnlRegistration.Controls.Add(this.btnBack);
             this.pnlRegistration.Controls.Add(this.chkAccountant);
             this.pnlRegistration.Controls.Add(this.chkSale);
             this.pnlRegistration.Controls.Add(this.lblUserType);
             this.pnlRegistration.Controls.Add(this.btnSearch);
             this.pnlRegistration.Controls.Add(this.btnShowAll);
             this.pnlRegistration.Controls.Add(this.dgvRegistration);
-            this.pnlRegistration.Controls.Add(this.txtSearch);
+            this.pnlRegistration.Controls.Add(this.txtSearchUserType);
             this.pnlRegistration.Controls.Add(this.btnDelete);
             this.pnlRegistration.Controls.Add(this.btnSave);
             this.pnlRegistration.Controls.Add(this.txtPassword);
@@ -91,6 +95,57 @@
             this.pnlRegistration.Size = new System.Drawing.Size(789, 436);
             this.pnlRegistration.TabIndex = 0;
             // 
+            // btnExit
+            // 
+            this.btnExit.Location = new System.Drawing.Point(180, 383);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(75, 23);
+            this.btnExit.TabIndex = 28;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(12, 383);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(75, 23);
+            this.btnBack.TabIndex = 27;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // chkAccountant
+            // 
+            this.chkAccountant.AutoSize = true;
+            this.chkAccountant.Location = new System.Drawing.Point(161, 257);
+            this.chkAccountant.Name = "chkAccountant";
+            this.chkAccountant.Size = new System.Drawing.Size(81, 17);
+            this.chkAccountant.TabIndex = 26;
+            this.chkAccountant.Text = "Accountant";
+            this.chkAccountant.UseVisualStyleBackColor = true;
+            this.chkAccountant.CheckedChanged += new System.EventHandler(this.chkAccountant_CheckedChanged);
+            // 
+            // chkSale
+            // 
+            this.chkSale.AutoSize = true;
+            this.chkSale.Location = new System.Drawing.Point(84, 256);
+            this.chkSale.Name = "chkSale";
+            this.chkSale.Size = new System.Drawing.Size(47, 17);
+            this.chkSale.TabIndex = 25;
+            this.chkSale.Text = "Sale";
+            this.chkSale.UseVisualStyleBackColor = true;
+            this.chkSale.CheckedChanged += new System.EventHandler(this.chkSale_CheckedChanged);
+            // 
+            // lblUserType
+            // 
+            this.lblUserType.AutoSize = true;
+            this.lblUserType.Location = new System.Drawing.Point(9, 257);
+            this.lblUserType.Name = "lblUserType";
+            this.lblUserType.Size = new System.Drawing.Size(56, 13);
+            this.lblUserType.TabIndex = 24;
+            this.lblUserType.Text = "User Type";
+            // 
             // btnSearch
             // 
             this.btnSearch.Location = new System.Drawing.Point(313, 19);
@@ -99,6 +154,7 @@
             this.btnSearch.TabIndex = 23;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnShowAll
             // 
@@ -128,6 +184,7 @@
             this.dgvRegistration.ReadOnly = true;
             this.dgvRegistration.Size = new System.Drawing.Size(461, 231);
             this.dgvRegistration.TabIndex = 21;
+            this.dgvRegistration.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRegistration_CellDoubleClick);
             // 
             // user_id
             // 
@@ -185,12 +242,12 @@
             this.user_type.Name = "user_type";
             this.user_type.ReadOnly = true;
             // 
-            // txtSearch
+            // txtSearchUserType
             // 
-            this.txtSearch.Location = new System.Drawing.Point(407, 21);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(100, 20);
-            this.txtSearch.TabIndex = 19;
+            this.txtSearchUserType.Location = new System.Drawing.Point(407, 21);
+            this.txtSearchUserType.Name = "txtSearchUserType";
+            this.txtSearchUserType.Size = new System.Drawing.Size(100, 20);
+            this.txtSearchUserType.TabIndex = 19;
             // 
             // btnDelete
             // 
@@ -200,6 +257,7 @@
             this.btnDelete.TabIndex = 17;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnSave
             // 
@@ -217,6 +275,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(100, 20);
             this.txtPassword.TabIndex = 12;
+            this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
             // lblPassword
             // 
@@ -266,6 +325,7 @@
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(100, 20);
             this.txtPhone.TabIndex = 7;
+            this.txtPhone.TextChanged += new System.EventHandler(this.txtPhone_TextChanged);
             // 
             // lblPhone
             // 
@@ -312,6 +372,7 @@
             // 
             this.txtUserId.Location = new System.Drawing.Point(84, 17);
             this.txtUserId.Name = "txtUserId";
+            this.txtUserId.ReadOnly = true;
             this.txtUserId.Size = new System.Drawing.Size(100, 20);
             this.txtUserId.TabIndex = 1;
             // 
@@ -323,37 +384,6 @@
             this.lblUserId.Size = new System.Drawing.Size(41, 13);
             this.lblUserId.TabIndex = 0;
             this.lblUserId.Text = "User Id";
-            // 
-            // lblUserType
-            // 
-            this.lblUserType.AutoSize = true;
-            this.lblUserType.Location = new System.Drawing.Point(9, 257);
-            this.lblUserType.Name = "lblUserType";
-            this.lblUserType.Size = new System.Drawing.Size(56, 13);
-            this.lblUserType.TabIndex = 24;
-            this.lblUserType.Text = "User Type";
-            // 
-            // chkSale
-            // 
-            this.chkSale.AutoSize = true;
-            this.chkSale.Location = new System.Drawing.Point(84, 256);
-            this.chkSale.Name = "chkSale";
-            this.chkSale.Size = new System.Drawing.Size(47, 17);
-            this.chkSale.TabIndex = 25;
-            this.chkSale.Text = "Sale";
-            this.chkSale.UseVisualStyleBackColor = true;
-            this.chkSale.CheckedChanged += new System.EventHandler(this.chkSale_CheckedChanged);
-            // 
-            // chkAccountant
-            // 
-            this.chkAccountant.AutoSize = true;
-            this.chkAccountant.Location = new System.Drawing.Point(161, 257);
-            this.chkAccountant.Name = "chkAccountant";
-            this.chkAccountant.Size = new System.Drawing.Size(81, 17);
-            this.chkAccountant.TabIndex = 26;
-            this.chkAccountant.Text = "Accountant";
-            this.chkAccountant.UseVisualStyleBackColor = true;
-            this.chkAccountant.CheckedChanged += new System.EventHandler(this.chkAccountant_CheckedChanged);
             // 
             // Registration
             // 
@@ -397,10 +427,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn gender;
         private System.Windows.Forms.DataGridViewTextBoxColumn password;
         private System.Windows.Forms.DataGridViewTextBoxColumn user_type;
-        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.TextBox txtSearchUserType;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.CheckBox chkAccountant;
         private System.Windows.Forms.CheckBox chkSale;
         private System.Windows.Forms.Label lblUserType;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button btnBack;
     }
 }

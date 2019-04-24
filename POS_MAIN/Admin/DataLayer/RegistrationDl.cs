@@ -11,12 +11,10 @@ namespace Admin.DataLayer
 {
     class RegistrationDl
     {
+        DataAccess dataaccess = new DataAccess();
         DataSet Ds { get; set; }
         public string InsertUser(UserInfo userinfo)
         {
-
-            DataAccess dataaccess = new DataAccess();
-
             string operationType = "";
             string sql = "select * from tbl_user where name = '" + userinfo.Name + "'";
             Ds = dataaccess.ExecuteQuery(sql);
@@ -30,7 +28,7 @@ namespace Admin.DataLayer
                 gender = '"+userinfo.Gender+@"',
                 password = '"+userinfo.Password+@"',
                 user_type = '"+userinfo.UserType+@"'
-                where name = '"+userinfo.Name+"'";
+                where user_name = '"+userinfo.UserName+"'";
 
                 try
                 {
@@ -69,11 +67,41 @@ namespace Admin.DataLayer
 
         }
 
+        public string DeleteUser(string userName)
+        {
+            string operationType = "";
+            //string user_id = this.dgv.CurrentRow.Cells["id"].Value.ToString();
+            string sql = "delete from tbl_user where user_name = '" + userName + "'";
+            try
+            {
+                dataaccess.ExecuteUpdateQuery(sql);
+                operationType = "Delete Done";
+
+                /*userId = "";
+                name = "";
+                userName = "";
+                phone = "";
+                password = "";*/
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine("Error: " + exc.Message);
+            }
+            return operationType;
+        }
+
         public DataSet GetUserList()
         {
             DataAccess da = new DataAccess();
             DataSet ds = da.ExecuteQuery("select * from tbl_user");
             return ds;  
+        }
+
+        public DataSet SearchUserType(string userType) //instead of direct text field, passed to Repository Method
+        {
+            string sql = "select * from tbl_user where user_type = '" + userType + "'";
+            Ds = dataaccess.ExecuteQuery(sql);
+            return Ds;
         }
     }
 }

@@ -29,6 +29,15 @@
         private void InitializeComponent()
         {
             this.pnlMenu = new System.Windows.Forms.Panel();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.dgvMenu = new System.Windows.Forms.DataGridView();
+            this.menuid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unit_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnShowAll = new System.Windows.Forms.Button();
+            this.txtSearchMenuName = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.rbDessert = new System.Windows.Forms.RadioButton();
             this.rbDrinks = new System.Windows.Forms.RadioButton();
@@ -46,23 +55,20 @@
             this.lblName = new System.Windows.Forms.Label();
             this.txtMenuId = new System.Windows.Forms.TextBox();
             this.menu_id = new System.Windows.Forms.Label();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.btnShowAll = new System.Windows.Forms.Button();
-            this.dgvMenu = new System.Windows.Forms.DataGridView();
-            this.menuid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unit_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnBack = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
             this.pnlMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMenu)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlMenu
             // 
+            this.pnlMenu.Controls.Add(this.btnExit);
+            this.pnlMenu.Controls.Add(this.btnBack);
+            this.pnlMenu.Controls.Add(this.btnDelete);
             this.pnlMenu.Controls.Add(this.dgvMenu);
             this.pnlMenu.Controls.Add(this.btnShowAll);
-            this.pnlMenu.Controls.Add(this.txtSearch);
+            this.pnlMenu.Controls.Add(this.txtSearchMenuName);
             this.pnlMenu.Controls.Add(this.btnSearch);
             this.pnlMenu.Controls.Add(this.btnSave);
             this.pnlMenu.Controls.Add(this.rbDessert);
@@ -86,6 +92,92 @@
             this.pnlMenu.Size = new System.Drawing.Size(795, 442);
             this.pnlMenu.TabIndex = 0;
             this.pnlMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMenu_Paint);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(177, 268);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.TabIndex = 21;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // dgvMenu
+            // 
+            this.dgvMenu.AllowUserToAddRows = false;
+            this.dgvMenu.AllowUserToDeleteRows = false;
+            this.dgvMenu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMenu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.menuid,
+            this.name,
+            this.unit_price,
+            this.category});
+            this.dgvMenu.Location = new System.Drawing.Point(376, 112);
+            this.dgvMenu.Name = "dgvMenu";
+            this.dgvMenu.ReadOnly = true;
+            this.dgvMenu.Size = new System.Drawing.Size(408, 214);
+            this.dgvMenu.TabIndex = 20;
+            this.dgvMenu.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMenu_CellContentDoubleClick);
+            // 
+            // menuid
+            // 
+            this.menuid.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.menuid.DataPropertyName = "menu_id";
+            this.menuid.HeaderText = "Menu Id";
+            this.menuid.Name = "menuid";
+            this.menuid.ReadOnly = true;
+            // 
+            // name
+            // 
+            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.name.DataPropertyName = "name";
+            this.name.HeaderText = "Name";
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            // 
+            // unit_price
+            // 
+            this.unit_price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.unit_price.DataPropertyName = "unit_price";
+            this.unit_price.HeaderText = "Unit Price";
+            this.unit_price.Name = "unit_price";
+            this.unit_price.ReadOnly = true;
+            // 
+            // category
+            // 
+            this.category.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.category.DataPropertyName = "category_name";
+            this.category.HeaderText = "Category";
+            this.category.Name = "category";
+            this.category.ReadOnly = true;
+            // 
+            // btnShowAll
+            // 
+            this.btnShowAll.Location = new System.Drawing.Point(377, 75);
+            this.btnShowAll.Name = "btnShowAll";
+            this.btnShowAll.Size = new System.Drawing.Size(75, 23);
+            this.btnShowAll.TabIndex = 19;
+            this.btnShowAll.Text = "Show All";
+            this.btnShowAll.UseVisualStyleBackColor = true;
+            this.btnShowAll.Click += new System.EventHandler(this.btnShowAll_Click);
+            // 
+            // txtSearchMenuName
+            // 
+            this.txtSearchMenuName.Location = new System.Drawing.Point(515, 32);
+            this.txtSearchMenuName.Name = "txtSearchMenuName";
+            this.txtSearchMenuName.Size = new System.Drawing.Size(100, 20);
+            this.txtSearchMenuName.TabIndex = 18;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(377, 29);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 17;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnSave
             // 
@@ -253,6 +345,7 @@
             // 
             this.txtMenuId.Location = new System.Drawing.Point(143, 29);
             this.txtMenuId.Name = "txtMenuId";
+            this.txtMenuId.ReadOnly = true;
             this.txtMenuId.Size = new System.Drawing.Size(100, 20);
             this.txtMenuId.TabIndex = 1;
             // 
@@ -266,79 +359,25 @@
             this.menu_id.TabIndex = 0;
             this.menu_id.Text = "Menu Id";
             // 
-            // btnSearch
+            // btnBack
             // 
-            this.btnSearch.Location = new System.Drawing.Point(377, 29);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 17;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnBack.Location = new System.Drawing.Point(8, 388);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(75, 23);
+            this.btnBack.TabIndex = 22;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // txtSearch
+            // btnExit
             // 
-            this.txtSearch.Location = new System.Drawing.Point(515, 32);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(100, 20);
-            this.txtSearch.TabIndex = 18;
-            // 
-            // btnShowAll
-            // 
-            this.btnShowAll.Location = new System.Drawing.Point(377, 75);
-            this.btnShowAll.Name = "btnShowAll";
-            this.btnShowAll.Size = new System.Drawing.Size(75, 23);
-            this.btnShowAll.TabIndex = 19;
-            this.btnShowAll.Text = "Show All";
-            this.btnShowAll.UseVisualStyleBackColor = true;
-            this.btnShowAll.Click += new System.EventHandler(this.btnShowAll_Click);
-            // 
-            // dgvMenu
-            // 
-            this.dgvMenu.AllowUserToAddRows = false;
-            this.dgvMenu.AllowUserToDeleteRows = false;
-            this.dgvMenu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMenu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.menuid,
-            this.name,
-            this.unit_price,
-            this.category});
-            this.dgvMenu.Location = new System.Drawing.Point(376, 112);
-            this.dgvMenu.Name = "dgvMenu";
-            this.dgvMenu.ReadOnly = true;
-            this.dgvMenu.Size = new System.Drawing.Size(408, 214);
-            this.dgvMenu.TabIndex = 20;
-            // 
-            // menuid
-            // 
-            this.menuid.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.menuid.DataPropertyName = "menu_id";
-            this.menuid.HeaderText = "Menu Id";
-            this.menuid.Name = "menuid";
-            this.menuid.ReadOnly = true;
-            // 
-            // name
-            // 
-            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.name.DataPropertyName = "name";
-            this.name.HeaderText = "Name";
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            // 
-            // unit_price
-            // 
-            this.unit_price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.unit_price.DataPropertyName = "unit_price";
-            this.unit_price.HeaderText = "Unit Price";
-            this.unit_price.Name = "unit_price";
-            this.unit_price.ReadOnly = true;
-            // 
-            // category
-            // 
-            this.category.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.category.DataPropertyName = "category_name";
-            this.category.HeaderText = "Category";
-            this.category.Name = "category";
-            this.category.ReadOnly = true;
+            this.btnExit.Location = new System.Drawing.Point(216, 388);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(75, 23);
+            this.btnExit.TabIndex = 23;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // WFAMenu
             // 
@@ -376,12 +415,15 @@
         private System.Windows.Forms.RadioButton rbSetMeals;
         private System.Windows.Forms.RadioButton rbBreakfast;
         private System.Windows.Forms.Button btnShowAll;
-        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.TextBox txtSearchMenuName;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.DataGridView dgvMenu;
         private System.Windows.Forms.DataGridViewTextBoxColumn menuid;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn unit_price;
         private System.Windows.Forms.DataGridViewTextBoxColumn category;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button btnBack;
     }
 }

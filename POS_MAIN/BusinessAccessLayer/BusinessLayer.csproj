@@ -43,7 +43,6 @@
   <ItemGroup>
     <Compile Include="CashierOperationBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SignUpLayer.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessObject\BusinessObject.csproj">

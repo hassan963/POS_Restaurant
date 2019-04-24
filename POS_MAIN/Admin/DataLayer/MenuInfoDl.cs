@@ -11,11 +11,12 @@ namespace Admin.DataLayer
 {
     class MenuInfoDl
     {
+        DataAccess dataaccess = new DataAccess();
         DataSet Ds { get; set; }
         public string InsertMenu(MenuInfo menuinfo)
         {
             string operationType = "";
-            DataAccess dataaccess = new DataAccess();
+            //DataAccess dataaccess = new DataAccess();
             string sql = "select * from tbl_menu where name = '"+menuinfo.Name+"'";
             Ds = dataaccess.ExecuteQuery(sql);
 
@@ -59,11 +60,35 @@ namespace Admin.DataLayer
 
         }
 
+        public string DeleteMenu(string menuId)
+        {
+            string operationType = "";
+            string sql = "delete from tbl_menu where menu_id = '" + menuId + "'";
+
+            try
+            {
+                this.dataaccess.ExecuteUpdateQuery(sql);
+                operationType = "Delete Done";
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine("Error: " + exc.Message);
+            }
+            return operationType;
+        }
+
         public DataSet GetMenuList()
         {
             DataAccess da = new DataAccess();
             DataSet ds = da.ExecuteQuery("select * from tbl_menu");
             return ds;
+        }
+
+        public DataSet SearchMenu(string name)
+        {
+            string sql = "select * from tbl_menu where name like '" + name + "%'";
+            Ds = dataaccess.ExecuteQuery(sql);
+            return Ds;
         }
 
 

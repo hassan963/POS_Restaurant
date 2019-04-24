@@ -11,10 +11,10 @@ namespace Admin.Repository
 {
     class MenuRepo
     {
-        public string AddMenu(MenuInfo menuinfo)
+        public string AddMenu(MenuInfo menuInfo)
         {
-            MenuInfoDl menuinfodl = new MenuInfoDl();
-            string operationType = menuinfodl.InsertMenu(menuinfo);
+            MenuInfoDl menuInfoDl = new MenuInfoDl();
+            string operationType = menuInfoDl.InsertMenu(menuInfo);
             return operationType;
         }
 
@@ -22,6 +22,20 @@ namespace Admin.Repository
         {
             MenuInfoDl menuinfodl = new MenuInfoDl();
             DataSet ds = menuinfodl.GetMenuList();
+            return ds;
+        }
+
+        public string DeleteMenu(string menuId)
+        {
+            MenuInfoDl menuInfoDl = new MenuInfoDl();
+            string operationType = menuInfoDl.DeleteMenu(menuId);
+            return operationType;
+        }
+
+        public DataSet SearchMenuName(string name)
+        {
+            MenuInfoDl menuInfoDl = new MenuInfoDl();
+            DataSet ds = menuInfoDl.SearchMenu(name);
             return ds;
         }
     }

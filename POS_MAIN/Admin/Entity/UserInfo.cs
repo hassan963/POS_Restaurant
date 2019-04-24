@@ -33,6 +33,17 @@ namespace Admin.Entity
         public string Phone { get; set; }
         public string Gender { get; set; }
         public string Password { get; set; }
+        /*public string Password
+        {
+            get { return this.password; }
+            set
+            {
+                if (this.password.Length >= 4)
+                    this.password = true;
+                else
+                    this.password = false;
+            }
+        }*/
         public string UserType { get; set; }
     }
 

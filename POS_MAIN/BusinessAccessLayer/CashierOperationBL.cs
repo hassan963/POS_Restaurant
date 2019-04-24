@@ -5,63 +5,84 @@ using System.Text;
 using System.Threading.Tasks;
 using DataAccessLayer;
 using BusinessObject;
+using System.Data;
 
 namespace BusinessAccessLayer
 {
     public class CashierOperationBL
     {
-        public List<MenuInfo> GetList(string categoryName)
+        
+
+        public CashierOperationBL()
         {
-            short categoryID = 1;
-            switch (categoryName)
-            {
-                case "BreakFast":
-                    categoryID = 1;
-                    break;
-                case "SetMeals":
-                    categoryID = 2;
-                    break;
-                case "Sandwich":
-                    categoryID = 3;
-                    break;
-                case "Burger":
-                    categoryID = 4;
-                    break;
-                case "Pizza":
-                    categoryID = 5;
-                    break;
-                case "Starter":
-                    categoryID = 6;
-                    break;
-                case "Pasta":
-                    categoryID = 7;
-                    break;
-                case "Coffee":
-                    categoryID = 8;
-                    break;
-                case "Drinks":
-                    categoryID = 9;
-                    break;
-                case "Dessert":
-                    categoryID = 10;
-                    break;
-                
-            }
-            return new CashierOperationDL().GetMenus(categoryID);
+            CashierOperation = new CashierOperationDL();
         }
 
-        public Boolean Addorder(List<OrderDetailsRepo> orderDetailsRepoList, string user_id)
+        private CashierOperationDL CashierOperation
+        {
+            set;
+            get;
+        }
+
+        public List<MenuInfo> GetList(string categoryName)
+        {
+            return CashierOperation.GetMenus(categoryName);
+        }
+
+        public Boolean Addorder(List<OrderDetailsRepo> orderDetailsRepoList, string user_name)
         {
             string status = "Processing";
-            CashierOperationDL cashierOperationDL = new CashierOperationDL();
+           // CashierOperationDL cashierOperationDL = new CashierOperationDL();
 
             for(int i = 0; i < orderDetailsRepoList.Count; i++)
             {
                 if (orderDetailsRepoList.Count - 1 == i) status = "DONE";
-                cashierOperationDL.InsertIntoOrder(orderDetailsRepoList[i], user_id, status);
+                CashierOperation.InsertIntoOrder(orderDetailsRepoList[i], user_name, status);
             }
 
             return true;
         }
+
+        // Generate a random string with a given current date time  
+        public string RandomString()
+        {
+            var time = DateTime.Now;
+            string formattedTime = time.ToString("yyyyMMddhhmmss");
+            StringBuilder builder = new StringBuilder();
+            Random random = new Random();
+            char ch;
+            for (int i = 0; i < 4; i++)
+            {
+                ch = Convert.ToChar(Convert.ToInt32(Math.Floor(26 * random.NextDouble() + 65)));
+                builder.Append(ch);
+            }
+
+            return builder.ToString().ToLower()+"_"+formattedTime;
+        }
+
+        public List<MenuInfo> SearchMenus(string search_text)
+        {
+           // CashierOperationDL cashierOperationDL = new CashierOperationDL();
+            return CashierOperation.SearchMenuByIdOrName(search_text);
+        }
+
+        public string GetDate()
+        {
+            var time = DateTime.Now;
+            return "Date: " + time.ToString("dd/MM/yyyy");
+        }
+
+       public DataSet OrderDetails(string order_id)
+       {
+            return CashierOperation.GetOrderDetails(order_id);
+       }
+
+       public DataSet OrderStatus(string order_id)
+        {
+            return CashierOperation.GetOrderStatus(order_id);
+        }
+        
     }
 }
+
+

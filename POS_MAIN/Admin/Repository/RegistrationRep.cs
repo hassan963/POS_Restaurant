@@ -13,16 +13,34 @@ namespace Admin.Repository
     {
         public string AddUser(UserInfo user)
         {
-            RegistrationDl regisdl = new RegistrationDl();
 
-            string operationType = regisdl.InsertUser(user);
+            //ADD USERS
+            RegistrationDl regisDl = new RegistrationDl();
+
+            string operationType = regisDl.InsertUser(user);
             return operationType;
         }
 
         public DataSet GetUsers()
         {
-            RegistrationDl regisdl = new RegistrationDl();
-            DataSet ds = regisdl.GetUserList();
+            //GRID VIEW POPULATE
+            RegistrationDl regisDl = new RegistrationDl();
+            DataSet ds = regisDl.GetUserList();
+            return ds;
+        }
+
+        public string DeleteUser(string userName)
+        {
+            RegistrationDl regisDl = new RegistrationDl();
+            string operationType = regisDl.DeleteUser(userName);
+            return operationType;
+        }
+
+        public DataSet SearchUserType(string userType)
+        {
+            // calling method of datalayer SearchUserType(userType), stored in dataset
+            RegistrationDl regisDl = new RegistrationDl();
+            DataSet ds = regisDl.SearchUserType(userType);
             return ds;
         }
     }

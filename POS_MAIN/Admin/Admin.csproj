@@ -49,6 +49,12 @@
     <Compile Include="Accountant.Designer.cs">
       <DependentUpon>Accountant.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminPanel.Designer.cs">
+      <DependentUpon>AdminPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataLayer\MenuInfoDl.cs" />
     <Compile Include="DataLayer\RegistrationDl.cs" />
     <Compile Include="Entity\MenuInfo.cs" />
@@ -84,6 +90,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Accountant.resx">
       <DependentUpon>Accountant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminPanel.resx">
+      <DependentUpon>AdminPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WFAMenu.resx">
       <DependentUpon>WFAMenu.cs</DependentUpon>

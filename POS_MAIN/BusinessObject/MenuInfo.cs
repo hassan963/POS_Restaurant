@@ -11,19 +11,19 @@ namespace BusinessObject
         private int menu_id;
         private string name;
         private float unit_price;
-        private int category_id;
+        private string category_name;
 
-        public MenuInfo(string name, float unit_price, int category_id)
+        public MenuInfo(string name, float unit_price, string category_name)
         {
             this.Name = name;
             this.UnitPrice = unit_price;
-            this.Category_id = category_id;
+            this.Category_Name = category_name;
         }
-        public MenuInfo(int menu_id, string name, float unit_price, int category_id)
+        public MenuInfo(int menu_id, string name, float unit_price, string category_name)
         {
             this.Name = name;
             this.UnitPrice = unit_price;
-            this.Category_id = category_id;
+            this.Category_Name = category_name;
             this.Menu_Id = menu_id;
 
         }
@@ -39,10 +39,10 @@ namespace BusinessObject
             set { unit_price = value; }
             get { return unit_price; }
         }
-        public int Category_id
+        public string Category_Name
         {
-            set { category_id = value; }
-            get { return category_id; }
+            set { category_name = value; }
+            get { return category_name; }
         }
         public int Menu_Id
         {

@@ -33,7 +33,7 @@
             this.ClearButton = new System.Windows.Forms.Button();
             this.UpdateButton = new System.Windows.Forms.Button();
             this.quantityTextBox = new System.Windows.Forms.TextBox();
-            this.PrintButton = new System.Windows.Forms.Button();
+            this.print_button = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.totalPriceLabel = new System.Windows.Forms.Label();
             this.orderListView = new System.Windows.Forms.ListView();
@@ -46,7 +46,6 @@
             this.StarterLabel = new System.Windows.Forms.Label();
             this.CoffeeLabel = new System.Windows.Forms.Label();
             this.PizzaLabel = new System.Windows.Forms.Label();
-            this.PastaLabel = new System.Windows.Forms.Label();
             this.BurgerLabel = new System.Windows.Forms.Label();
             this.SandwichLabel = new System.Windows.Forms.Label();
             this.SetMealsLabel = new System.Windows.Forms.Label();
@@ -55,11 +54,9 @@
             this.menu_name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.date_label = new System.Windows.Forms.Label();
             this.user_name_label = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.user_type_label = new System.Windows.Forms.Label();
             this.search_textbox = new System.Windows.Forms.TextBox();
-            this.search_button = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.log_out_button = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -71,13 +68,13 @@
             this.panel2.Controls.Add(this.ClearButton);
             this.panel2.Controls.Add(this.UpdateButton);
             this.panel2.Controls.Add(this.quantityTextBox);
-            this.panel2.Controls.Add(this.PrintButton);
+            this.panel2.Controls.Add(this.print_button);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.totalPriceLabel);
             this.panel2.Controls.Add(this.orderListView);
-            this.panel2.Location = new System.Drawing.Point(756, 52);
+            this.panel2.Location = new System.Drawing.Point(756, 37);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(471, 458);
+            this.panel2.Size = new System.Drawing.Size(471, 473);
             this.panel2.TabIndex = 1;
             // 
             // PayButton
@@ -121,15 +118,16 @@
             this.quantityTextBox.Size = new System.Drawing.Size(166, 31);
             this.quantityTextBox.TabIndex = 4;
             // 
-            // PrintButton
+            // print_button
             // 
-            this.PrintButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PrintButton.Location = new System.Drawing.Point(229, 402);
-            this.PrintButton.Name = "PrintButton";
-            this.PrintButton.Size = new System.Drawing.Size(112, 39);
-            this.PrintButton.TabIndex = 3;
-            this.PrintButton.Text = "Print";
-            this.PrintButton.UseVisualStyleBackColor = true;
+            this.print_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.print_button.Location = new System.Drawing.Point(229, 402);
+            this.print_button.Name = "print_button";
+            this.print_button.Size = new System.Drawing.Size(112, 39);
+            this.print_button.TabIndex = 3;
+            this.print_button.Text = "Print";
+            this.print_button.UseVisualStyleBackColor = true;
+            this.print_button.Click += new System.EventHandler(this.print_button_Click);
             // 
             // label1
             // 
@@ -191,7 +189,6 @@
             this.panel1.Controls.Add(this.StarterLabel);
             this.panel1.Controls.Add(this.CoffeeLabel);
             this.panel1.Controls.Add(this.PizzaLabel);
-            this.panel1.Controls.Add(this.PastaLabel);
             this.panel1.Controls.Add(this.BurgerLabel);
             this.panel1.Controls.Add(this.SandwichLabel);
             this.panel1.Controls.Add(this.SetMealsLabel);
@@ -208,7 +205,7 @@
             this.DessertLabel.BackColor = System.Drawing.Color.Chartreuse;
             this.DessertLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DessertLabel.ForeColor = System.Drawing.Color.White;
-            this.DessertLabel.Location = new System.Drawing.Point(510, 50);
+            this.DessertLabel.Location = new System.Drawing.Point(178, 6);
             this.DessertLabel.Name = "DessertLabel";
             this.DessertLabel.Size = new System.Drawing.Size(116, 31);
             this.DessertLabel.TabIndex = 21;
@@ -221,7 +218,7 @@
             this.DrinksLabel.BackColor = System.Drawing.Color.DarkGreen;
             this.DrinksLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DrinksLabel.ForeColor = System.Drawing.Color.White;
-            this.DrinksLabel.Location = new System.Drawing.Point(406, 50);
+            this.DrinksLabel.Location = new System.Drawing.Point(350, 50);
             this.DrinksLabel.Name = "DrinksLabel";
             this.DrinksLabel.Size = new System.Drawing.Size(98, 31);
             this.DrinksLabel.TabIndex = 20;
@@ -247,7 +244,7 @@
             this.CoffeeLabel.BackColor = System.Drawing.Color.DarkOliveGreen;
             this.CoffeeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CoffeeLabel.ForeColor = System.Drawing.Color.White;
-            this.CoffeeLabel.Location = new System.Drawing.Point(299, 50);
+            this.CoffeeLabel.Location = new System.Drawing.Point(217, 50);
             this.CoffeeLabel.Name = "CoffeeLabel";
             this.CoffeeLabel.Size = new System.Drawing.Size(101, 31);
             this.CoffeeLabel.TabIndex = 18;
@@ -267,26 +264,13 @@
             this.PizzaLabel.Text = "Pizza";
             this.PizzaLabel.Click += new System.EventHandler(this.Label_Click);
             // 
-            // PastaLabel
-            // 
-            this.PastaLabel.AutoSize = true;
-            this.PastaLabel.BackColor = System.Drawing.Color.LightGreen;
-            this.PastaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PastaLabel.ForeColor = System.Drawing.Color.White;
-            this.PastaLabel.Location = new System.Drawing.Point(204, 50);
-            this.PastaLabel.Name = "PastaLabel";
-            this.PastaLabel.Size = new System.Drawing.Size(89, 31);
-            this.PastaLabel.TabIndex = 16;
-            this.PastaLabel.Text = "Pasta";
-            this.PastaLabel.Click += new System.EventHandler(this.Label_Click);
-            // 
             // BurgerLabel
             // 
             this.BurgerLabel.AutoSize = true;
             this.BurgerLabel.BackColor = System.Drawing.Color.OliveDrab;
             this.BurgerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BurgerLabel.ForeColor = System.Drawing.Color.White;
-            this.BurgerLabel.Location = new System.Drawing.Point(525, 6);
+            this.BurgerLabel.Location = new System.Drawing.Point(516, 6);
             this.BurgerLabel.Name = "BurgerLabel";
             this.BurgerLabel.Size = new System.Drawing.Size(101, 31);
             this.BurgerLabel.TabIndex = 15;
@@ -299,7 +283,7 @@
             this.SandwichLabel.BackColor = System.Drawing.Color.ForestGreen;
             this.SandwichLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SandwichLabel.ForeColor = System.Drawing.Color.White;
-            this.SandwichLabel.Location = new System.Drawing.Point(350, 6);
+            this.SandwichLabel.Location = new System.Drawing.Point(318, 6);
             this.SandwichLabel.Name = "SandwichLabel";
             this.SandwichLabel.Size = new System.Drawing.Size(140, 31);
             this.SandwichLabel.TabIndex = 14;
@@ -312,11 +296,11 @@
             this.SetMealsLabel.BackColor = System.Drawing.Color.LawnGreen;
             this.SetMealsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SetMealsLabel.ForeColor = System.Drawing.Color.White;
-            this.SetMealsLabel.Location = new System.Drawing.Point(184, 6);
+            this.SetMealsLabel.Location = new System.Drawing.Point(474, 50);
             this.SetMealsLabel.Name = "SetMealsLabel";
-            this.SetMealsLabel.Size = new System.Drawing.Size(135, 31);
+            this.SetMealsLabel.Size = new System.Drawing.Size(143, 31);
             this.SetMealsLabel.TabIndex = 13;
-            this.SetMealsLabel.Text = "SetMeals";
+            this.SetMealsLabel.Text = "Set Meals";
             this.SetMealsLabel.Click += new System.EventHandler(this.Label_Click);
             // 
             // label2
@@ -327,9 +311,9 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(3, 6);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(148, 31);
+            this.label2.Size = new System.Drawing.Size(139, 31);
             this.label2.TabIndex = 12;
-            this.label2.Text = "BreakFast";
+            this.label2.Text = "Breakfast";
             this.label2.Click += new System.EventHandler(this.Label_Click);
             // 
             // menu_listview
@@ -363,30 +347,9 @@
             this.user_name_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.user_name_label.Location = new System.Drawing.Point(20, 63);
             this.user_name_label.Name = "user_name_label";
-            this.user_name_label.Size = new System.Drawing.Size(91, 25);
+            this.user_name_label.Size = new System.Drawing.Size(128, 25);
             this.user_name_label.TabIndex = 4;
-            this.user_name_label.Text = "Hassan";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(150, 63);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 25);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Role:";
-            // 
-            // user_type_label
-            // 
-            this.user_type_label.AutoSize = true;
-            this.user_type_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.user_type_label.Location = new System.Drawing.Point(217, 63);
-            this.user_type_label.Name = "user_type_label";
-            this.user_type_label.Size = new System.Drawing.Size(93, 25);
-            this.user_type_label.TabIndex = 6;
-            this.user_type_label.Text = "Cashier";
-            this.user_type_label.Click += new System.EventHandler(this.user_type_label_Click);
+            this.user_name_label.Text = "User Name";
             // 
             // search_textbox
             // 
@@ -395,16 +358,7 @@
             this.search_textbox.Name = "search_textbox";
             this.search_textbox.Size = new System.Drawing.Size(166, 31);
             this.search_textbox.TabIndex = 7;
-            // 
-            // search_button
-            // 
-            this.search_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.search_button.Location = new System.Drawing.Point(595, 60);
-            this.search_button.Name = "search_button";
-            this.search_button.Size = new System.Drawing.Size(93, 31);
-            this.search_button.TabIndex = 8;
-            this.search_button.Text = "Search";
-            this.search_button.UseVisualStyleBackColor = true;
+            this.search_textbox.TextChanged += new System.EventHandler(this.search_textbox_TextChanged);
             // 
             // label4
             // 
@@ -416,17 +370,26 @@
             this.label4.TabIndex = 9;
             this.label4.Text = "Search by name or id";
             // 
+            // log_out_button
+            // 
+            this.log_out_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.log_out_button.Location = new System.Drawing.Point(610, 37);
+            this.log_out_button.Name = "log_out_button";
+            this.log_out_button.Size = new System.Drawing.Size(120, 54);
+            this.log_out_button.TabIndex = 8;
+            this.log_out_button.Text = "Log Out";
+            this.log_out_button.UseVisualStyleBackColor = true;
+            this.log_out_button.Click += new System.EventHandler(this.log_out_button_Click);
+            // 
             // CashierForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1239, 522);
+            this.Controls.Add(this.log_out_button);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.search_button);
             this.Controls.Add(this.search_textbox);
-            this.Controls.Add(this.user_type_label);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.user_name_label);
             this.Controls.Add(this.date_label);
             this.Controls.Add(this.panel1);
@@ -453,7 +416,6 @@
         private System.Windows.Forms.Label StarterLabel;
         private System.Windows.Forms.Label CoffeeLabel;
         private System.Windows.Forms.Label PizzaLabel;
-        private System.Windows.Forms.Label PastaLabel;
         private System.Windows.Forms.Label BurgerLabel;
         private System.Windows.Forms.Label SandwichLabel;
         private System.Windows.Forms.Label SetMealsLabel;
@@ -465,16 +427,14 @@
         private System.Windows.Forms.Button ClearButton;
         private System.Windows.Forms.Button UpdateButton;
         private System.Windows.Forms.TextBox quantityTextBox;
-        private System.Windows.Forms.Button PrintButton;
+        private System.Windows.Forms.Button print_button;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label totalPriceLabel;
         private System.Windows.Forms.Button PayButton;
         private System.Windows.Forms.Label date_label;
         private System.Windows.Forms.Label user_name_label;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label user_type_label;
         private System.Windows.Forms.TextBox search_textbox;
-        private System.Windows.Forms.Button search_button;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button log_out_button;
     }
 }
